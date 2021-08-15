@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text to Speech</title>
+</head>
+<body>
+	<input type="text" name="text">
+	<a href="#" class="say">Say it!</a>
+	<audio src="" class="saeech" hidden></audio>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $(funtion(){
+        $('a.say').on('click',function(e){
+              e.preventDefault();
+              var text= $('input[name="text"]').val();
+            text = encodeURIComponent(text);
+            console.log(text);
+            var url = "http://translate.coogle.com/translate_tts?ie=UTF-&&q=" + text + "&tl=en";
+            $('audio').attr('src', url).get(0).play();
+     });
+    });
+  </script>
+	</body>
+	</html>
